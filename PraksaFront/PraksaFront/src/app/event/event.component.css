@@ -1,0 +1,18 @@
+.event-card {
+  transition: transform 0.2s;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.invite-button {
+  transition: background-color 0.2s, color 0.2s;
+  background-color: #fff;
+  color: #007bff;
+}
+
+.invite-button:hover {
+  background-color: #0056b3; /* Tamnija nijansa plave boje */
+}

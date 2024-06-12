@@ -1,0 +1,41 @@
+<h2 mat-dialog-title>Add Event</h2>
+<div mat-dialog-content>
+  <form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <mat-form-field appearance="fill">
+        <mat-label>Name:</mat-label>
+        <input matInput type="text" formControlName="name" required>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field appearance="fill">
+        <mat-label>Date:</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="date" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field appearance="fill">
+        <mat-label>Time:</mat-label>
+        <input matInput type="time" formControlName="time" required>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field appearance="fill">
+        <mat-label>Location:</mat-label>
+        <input matInput type="text" formControlName="location" required>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field appearance="fill">
+        <mat-label>Description:</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+      </mat-form-field>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onClose()">Cancel</button>
+  <button mat-button color="primary" type="submit" [disabled]="!eventForm.valid" (click)="onSubmit()">Submit</button>
+</div>

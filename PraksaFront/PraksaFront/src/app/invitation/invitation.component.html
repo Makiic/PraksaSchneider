@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Invite to {{ data.eventName }}</h2>
+<mat-dialog-content>
+  <form [formGroup]="invitationForm">
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" placeholder="Enter email">
+      <mat-error *ngIf="invitationForm.get('email')?.hasError('required')">
+        Email is required
+      </mat-error>
+      <mat-error *ngIf="invitationForm.get('email')?.hasError('email')">
+        Please enter a valid email address
+      </mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="sendInvitation()" [disabled]="invitationForm.invalid">Send</button>
+</mat-dialog-actions>

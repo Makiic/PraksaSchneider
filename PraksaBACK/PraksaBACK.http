@@ -1,0 +1,6 @@
+@PraksaBACK_HostAddress = http://localhost:5188
+
+GET {{PraksaBACK_HostAddress}}/praksa/
+Accept: application/json
+
+###
