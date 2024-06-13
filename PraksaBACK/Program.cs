@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using PraksaBACK.Contexts;
 using PraksaBACK.MailUtil;
+Console.WriteLine($"Verzija .NET Framework-a: {Environment.Version}");
 
 var builder = WebApplication.CreateBuilder(args);
 

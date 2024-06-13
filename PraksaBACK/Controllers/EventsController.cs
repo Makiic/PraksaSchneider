@@ -39,48 +39,8 @@ namespace PraksaBACK.Controllers
             return CreatedAtAction(nameof(GetEvent), new { id = eventItem.Id }, eventItem);
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutEvent(int id, Event eventItem)
-        {
-            if (id != eventItem.Id)
-            {
-                return BadRequest();
-            }
+      
 
-            _context.Entry(eventItem).State = EntityState.Modified;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!_context.Events.Any(e => e.Id == id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteEvent(int id)
-        {
-            Event? eventItem = await _context.Events.FindAsync(id);
-            if (eventItem == null)
-            {
-                return NotFound();
-            }
-
-            _context.Events.Remove(eventItem);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
     }
 }
